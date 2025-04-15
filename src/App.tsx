@@ -17,7 +17,7 @@ function App() {
 
 	const forecast = useForecastQuery(latitude, longitude);
 
-	console.log(forecast.data);
+	
 
 	return (
 		<StyledContainer>
