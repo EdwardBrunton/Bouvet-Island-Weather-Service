@@ -15,14 +15,17 @@ const WeatherIcon: React.FC<WeatherIconProps> = ({ wmoCode }) => {
 		if (code >= 40 && code <= 48)
 			return <img src='/public/weather-icons/fog-day.svg' />; // Fog
 		if (code >= 50 && code <= 59)
-			return <img src='/public/weather-icons/partly-cloudy-day-rain.svg' />; // Light Rain
+			return <img src='/public/weather-icons/drizzle.svg' />; // Light Rain
 		if (code >= 60 && code <= 69)
 			return <img src='/public/weather-icons/rain.svg' />; // Rain
 		if (code >= 70 && code <= 79)
 			return <img src='/public/weather-icons/partly-cloudy-day-snow.svg' />; // Snow
+		if (code >= 80 && code <= 82)
+			return <img src='/public/weather-icons/drizzle.svg' />; // Rain
 		if (code >= 95 && code <= 99)
 			return <img src='/public/weather-icons/thunderstorms-rain.svg' />; // Thunderstorms
-		return <img src='/public/weather-icons/' />; // Default icon
+		console.warn(`No icon found for WMO code: ${code}`);
+		return <img width='180px' src='/public/confused-penguin.gif' />; // Fallback icon
 	};
 
 	return <div>{getIcon(wmoCode)}</div>;
