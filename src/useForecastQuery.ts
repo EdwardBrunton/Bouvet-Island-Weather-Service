@@ -7,7 +7,7 @@ type Forecast = {
 	hourly: HourlyForecast[];
 };
 
-type HourlyForecast = {
+export type HourlyForecast = {
 	temperature: number;
 	time: Date;
 };
