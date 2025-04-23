@@ -12,9 +12,9 @@ const StyledContainer = styled.div`
 `;
 
 function App() {
-	// coordinates for stavanger
-	const latitude = 58.97;
-	const longitude = 5.73;
+	// coordinates for Bouvet Island
+	const latitude = -54.421404;
+	const longitude = 3.3505891;
 
 	const forecast = useForecastQuery(latitude, longitude);
 
