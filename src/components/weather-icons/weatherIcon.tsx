@@ -22,6 +22,8 @@ const WeatherIcon: React.FC<WeatherIconProps> = ({ wmoCode }) => {
 			return <img src='/public/weather-icons/partly-cloudy-day-snow.svg' />; // Snow
 		if (code >= 80 && code <= 82)
 			return <img src='/public/weather-icons/drizzle.svg' />; // Rain
+		if (code >= 85 && code <= 86)
+			return <img src='/public/weather-icons/partly-cloudy-day-snow.svg' />; // Snow
 		if (code >= 95 && code <= 99)
 			return <img src='/public/weather-icons/thunderstorms-rain.svg' />; // Thunderstorms
 		console.warn(`No icon found for WMO code: ${code}`);
