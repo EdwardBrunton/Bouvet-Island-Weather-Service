@@ -1,6 +1,7 @@
 import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { HourlyForecast } from '../../useForecastQuery';
 import { LineChart } from '@mui/x-charts';
+import moment from 'moment';
 
 interface WeatherGraphProps {
     hourly?: HourlyForecast[];
@@ -60,8 +61,9 @@ const WeatherGraph: React.FC<WeatherGraphProps> = ({
                     xAxis={[
                         {
                             dataKey: 'time',
-                            // note: the time is being passed as a number, not a date
-                            valueFormatter: (time: Date) => new Date(time).getHours().toString(),
+                            valueFormatter: (time: Date) => {
+                                return moment(time).format('HH:mm');
+                            },
                         }
                     ]}
                     yAxis={[{ min: min, max: max }]}
