@@ -9,15 +9,25 @@ const WeatherIcon: React.FC<WeatherIconProps> = ({ wmoCode }) => {
 		if (code === 0) return <img src='/public/weather-icons/clear-day.svg' />; // Clear sky
 		if (code >= 1 && code <= 3)
 			return <img src='/public/weather-icons/partly-cloudy-day.svg' />; // Partly cloudy to overcast
-		if (code >= 45 && code <= 48)
+		if (code === 5) return <img src='/public/weather-icons/haze-day.svg' />; // Haze
+		if (code >= 10 && code <= 12)
+			return <img src='/public/weather-icons/mist.svg' />; // Mist
+		if (code >= 40 && code <= 48)
 			return <img src='/public/weather-icons/fog-day.svg' />; // Fog
-		if (code >= 51 && code <= 67)
+		if (code >= 50 && code <= 59)
+			return <img src='/public/weather-icons/drizzle.svg' />; // Light Rain
+		if (code >= 60 && code <= 69)
 			return <img src='/public/weather-icons/rain.svg' />; // Rain
-		if (code >= 71 && code <= 77)
+		if (code >= 70 && code <= 79)
+			return <img src='/public/weather-icons/partly-cloudy-day-snow.svg' />; // Snow
+		if (code >= 80 && code <= 82)
+			return <img src='/public/weather-icons/drizzle.svg' />; // Rain
+		if (code >= 85 && code <= 86)
 			return <img src='/public/weather-icons/partly-cloudy-day-snow.svg' />; // Snow
 		if (code >= 95 && code <= 99)
 			return <img src='/public/weather-icons/thunderstorms-rain.svg' />; // Thunderstorms
-		return <img src='/public/weather-icons/' />; // Default icon
+		console.warn(`No icon found for WMO code: ${code}`);
+		return <img width='180px' src='/public/confused-penguin.gif' />; // Fallback icon
 	};
 
 	return <div>{getIcon(wmoCode)}</div>;
